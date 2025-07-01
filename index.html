@@ -1,137 +1,799 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raj Sharma</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Raj Sharma - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-  </head>
-  <body>
+        :root {
+            --primary-bg: #0a0a0f;
+            --secondary-bg: #111119;
+            --accent-bg: #1a1a2e;
+            --primary-purple: #9945ff;
+            --secondary-purple: #6b46c1;
+            --cyan: #00d4ff;
+            --pink: #ff0080;
+            --green: #00ff88;
+            --white: #ffffff;
+            --text-gray: #a0a0a0;
+            --card-bg: rgba(17, 17, 25, 0.8);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-bg);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(153, 69, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 0, 128, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(50px, 30px) rotate(1deg); }
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(153, 69, 255, 0.2);
+            background: rgba(10, 10, 15, 0.9);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-left {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-purple), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-right ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-right a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-right a:hover {
+            color: var(--primary-purple);
+            background: rgba(153, 69, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-right i {
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .nav-right i:hover {
+            background: var(--primary-purple);
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        .menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+        }
+
+        /* Hero Section */
+        .main {
+            padding-top: 80px;
+        }
+
+        .section1 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .left-sec {
+            flex: 1;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .purple {
+            background: linear-gradient(45deg, var(--primary-purple), var(--pink), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(20deg); }
+        }
+
+        #element {
+            color: var(--cyan);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(0, 212, 255, 0.8); }
+        }
+
+        .right-sec {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .right-sec img {
+            max-width: 500px;
+            width: 100%;
+            filter: drop-shadow(0 0 50px rgba(153, 69, 255, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Skills Section */
+        .section-2 {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .top h1 {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .top h1::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--cyan));
+            border-radius: 2px;
+        }
+
+        .bottom {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .box {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(153, 69, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(153, 69, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .box:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .box:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-purple);
+            box-shadow: 0 20px 40px rgba(153, 69, 255, 0.2);
+        }
+
+        .box h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .box p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .para {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .para a {
+            background: linear-gradient(45deg, var(--primary-purple), var(--pink));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .para a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .para a:hover::before {
+            left: 100%;
+        }
+
+        .para a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(153, 69, 255, 0.4);
+        }
+
+        /* Projects Section */
+        .section-3 {
+            padding: 100px 5%;
+            background: var(--secondary-bg);
+            position: relative;
+        }
+
+        .section-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-purple), transparent);
+        }
+
+        .project {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project h1 {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(45deg, var(--cyan), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--green), var(--pink));
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .project-box:hover::after {
+            transform: translateX(0);
+        }
+
+        .project-box:hover {
+            transform: translateX(10px);
+            border-color: var(--cyan);
+            box-shadow: -10px 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--cyan);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .project-box a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-box a:hover {
+            text-shadow: 0 0 25px rgba(0, 212, 255, 0.8);
+        }
+
+        .project-box p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .project-box span {
+            color: var(--green);
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-bg);
+            padding: 60px 5%;
+            border-top: 1px solid rgba(153, 69, 255, 0.2);
+        }
+
+        .personal-details {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .personal-details h2 {
+            color: var(--text-gray);
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .personal-details h2:hover {
+            color: var(--primary-purple);
+            border-color: var(--primary-purple);
+            transform: translateY(-5px);
+        }
+
+        .personal-details i {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+        }
+
+        /* Mobile Menu */
+        .fixed-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(17, 17, 25, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(153, 69, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+
+        .fixed-menu a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            width: 80%;
+            text-align: center;
+        }
+
+        .fixed-menu a:hover {
+            color: var(--primary-purple);
+            background: rgba(153, 69, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-right ul {
+                display: none;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .section1 {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .left-sec {
+                font-size: 2.5rem;
+            }
+
+            .top h1, .project h1 {
+                font-size: 2.5rem;
+            }
+
+            .bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .personal-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--primary-purple), var(--cyan));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, var(--cyan), var(--primary-purple));
+        }
+
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .section1, .section-2, .section-3 {
+            animation: fadeInUp 1s ease-out;
+        }
+    </style>
+</head>
+<body>
     <header>
-      <nav>
-        <div class="nav-left">Raj's PortFolio</div>
-        <div class="nav-right">
-          <ul>
-            <a  href="https://drive.google.com/file/d/1O10lJJRYwBd7NBnf2YLii4ObsGqImU8E/view?usp=sharing"><li>Resume</li></a>
-            <a href="/"><li>Skills</li></a>
-            <a href="/"> <li>Projects</li></a>
-            <a href="#"><li>Contact Me</li></a>
-            <a href="https://www.linkedin.com/in/raj-sharma9975/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/renchooz"><i class="fa-brands fa-github"></i></a>
-          </ul>
-        </div>
-        <div class="menu">Menu</div>
-      </nav>
+        <nav>
+            <div class="nav-left">Raj's Portfolio</div>
+            <div class="nav-right">
+                <ul>
+                    <a href="https://drive.google.com/file/d/1igQzDkRsIbNf853n4KlJ4I4BagyfYRDD/view?usp=sharing"><li>Resume</li></a>
+                    <a href="#skills"><li>Skills</li></a>
+                    <a href="#projects"><li>Projects</li></a>
+                    <a href="#contact"><li>Contact</li></a>
+                    <a href="https://www.linkedin.com/in/raj-sharma9975/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/renchooz"><i class="fa-brands fa-github"></i></a>
+                </ul>
+            </div>
+            <div class="menu" onclick="toggleMenu()">☰</div>
+        </nav>
     </header>
+
     <div class="main">
-      <section class="section1">
-        <div class="left-sec">
-          Hi my name is <span class="purple">Raj Sharma</span>
-          <div>and i am a passionate</div>
-          <span id="element"></span>
-        </div>
-        <div class="right-sec">
-          <img
-            src="web-developer-illustration-2005x2048-fal2biag.png"
-            alt="hi"
-          />
-        </div>
-      </section>
-      <section class="section-2">
-        <div class="top">
-          <h1>Skills</h1>
-        </div>
-        <div class="bottom">
-          <div class="box">
-            <h1 style="color: #f80000c4">HTML5</h1>
-            <p>
-              If you’re looking for someone with a deep understanding of HTML5
-              and a drive to create innovative web solutions, I’d love to
-              connect and explore potential collaborations!
-            </p>
-          </div>
-          <div class="box">
-            <h1 style="color: #8b8bf8;">CSS</h1>
-            <p>
-              If you’re looking to elevate your web presence with clean,
-              efficient, and visually engaging CSS, let’s connect and make it
-              happen!
-            </p>
-          </div>
-          <div class="box">
-            <h1 style="color: #dcdc25">JavaScript</h1>
-            <p>
-              If you’re looking for someone to transform your ideas into
-              engaging and efficient web solutions, let’s connect and build
-              something amazing together!
-            </p>
-          </div>
-          <div class="box">
-            <h1 style="color: green">Bootstrap</h1>
-            <p>
-              Skilled in utilizing the Bootstrap framework to streamline the development process, ensuring that applications are mobile-first and user-friendly.
-            </p>
-          </div>
-          <div class="box">
-            <h1 style="color: orange">Typescript</h1>
-            <p>
-              A detail-oriented TypeScript Developer with a strong foundation in building scalable and maintainable web applications.
-            </p>
-          </div>
-          <div class="box">
-            <h1 style="color: #e90f58a3">MERN</h1>
-            <p>
-              I recently learned MongoDb, Express Js, React, Node Js and API integrations.
-            </p>
-          </div>
-        </div>
-        <p class="para"><a href="#">Know More</a></p>
-      </section>
-      <section class="section-3">
-        <div class="project">
-          <h1>Projects</h1>
-            <div class="project-box">
-            <a href="https://melodious-marigold-cac143.netlify.app/"><h2>Foodies</h2></a>
-               <p>Your Ultimate Online Food Destination<span>Order Any Thing</span>Anywhere</p>
-           </div>
-          <div class="project-box">
-           <a href="https://66f2de9edda74e0651011ccd--frabjous-seahorse-0ffa57.netlify.app"><h2>Sundown Studio</h2></a>
-              <p>Its a fully responsive website and its clone of <span>Sundown Studio</span></p>
-          </div>
-           <div class="project-box">
-            <a href="https://66f4373a38442614b36cd349--lucky-caramel-d7dba8.netlify.app/"><h2>Bubble Game</h2></a>
-               <p>It is a game of<span>Bubbles</span>where we have to click on given number and score gets updated</p>
-           </div>
-           <div class="project-box">
-            <a href="https://66f434d55f1b88128e8a4b47--dynamic-sorbet-858250.netlify.app/"><h2>Pdf Converter</h2></a>
-               <p>It is a simple but useful website which<span>Merges 2 or more Pdfs</span></p>
-           </div>
-        </div>
-      </section>
-      <section class="section-4"></section>
-      <footer>
-        <div class="personal-details">
-            <h2><i class="fa-solid fa-person"></i>Raj Sharma</h2>
-            <h2><i class="fa-solid fa-mobile"></i>9975480892</h2>
-            <h2><i class="fa-solid fa-envelope"></i>rjsharma.rs967@gmail.com</h2>
-            <h2><i class="fa-solid fa-location-crosshairs"></i>Mumbai, Maharashtra
-            </h2>
-        </div>
-    </footer>
+        <section class="section1">
+            <div class="left-sec">
+                Hi my name is <span class="purple">Raj Sharma</span>
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="right-sec">
+                <img src="web-developer-illustration-2005x2048-fal2biag.png" />
+            </div>
+        </section>
+
+        <section class="section-2" id="skills">
+            <div class="top">
+                <h1>Skills</h1>
+            </div>
+            <div class="bottom">
+                <div class="box">
+                    <h1 style="color: #ff6b35;">HTML5</h1>
+                    <p>If you're looking for someone with a deep understanding of HTML5 and a drive to create innovative web solutions, I'd love to connect and explore potential collaborations!</p>
+                </div>
+                <div class="box">
+                    <h1 style="color: #4fc3f7;">CSS</h1>
+                    <p>If you're looking to elevate your web presence with clean, efficient, and visually engaging CSS, let's connect and make it happen!</p>
+                </div>
+                <div class="box">
+                    <h1 style="color: #ffd600;">JavaScript</h1>
+                    <p>If you're looking for someone to transform your ideas into engaging and efficient web solutions, let's connect and build something amazing together!</p>
+                </div>
+                <div class="box">
+                    <h1 style="color: #7c4dff;">Bootstrap</h1>
+                    <p>Skilled in utilizing the Bootstrap framework to streamline the development process, ensuring that applications are mobile-first and user-friendly.</p>
+                </div>
+                <div class="box">
+                    <h1 style="color: #00bcd4;">TypeScript</h1>
+                    <p>A detail-oriented TypeScript Developer with a strong foundation in building scalable and maintainable web applications.</p>
+                </div>
+                <div class="box">
+                    <h1 style="color: #00ff88;">MERN</h1>
+                    <p>I recently learned MongoDB, Express.js, React, Node.js and API integrations to build full-stack applications.</p>
+                </div>
+            </div>
+            <p class="para"><a href="#">Know More</a></p>
+        </section>
+
+        <section class="section-3" id="projects">
+            <div class="project">
+                <h1>Projects</h1>
+                <div class="project-box">
+                    <a href="https://spiffy-daifuku-34a3c8.netlify.app/"><h2>Travleeee</h2></a>
+                    <p>Travlee is a full-stack web application designed to streamline <span>car</span> and travel bookings</p>
+                </div>
+                <div class="project-box">
+                    <a href="https://melodious-marigold-cac143.netlify.app/"><h2>Foodies</h2></a>
+                    <p>Your Ultimate Online Food Destination <span>Order Anything</span> Anywhere</p>
+                </div>
+                <div class="project-box">
+                    <a href="https://66f2de9edda74e0651011ccd--frabjous-seahorse-0ffa57.netlify.app"><h2>Sundown Studio</h2></a>
+                    <p>It's a fully responsive website and it's clone of <span>Sundown Studio</span></p>
+                </div>
+                <div class="project-box">
+                    <a href="https://66f4373a38442614b36cd349--lucky-caramel-d7dba8.netlify.app/"><h2>Bubble Game</h2></a>
+                    <p>It is a game of <span>Bubbles</span> where we have to click on given number and score gets updated</p>
+                </div>
+                <div class="project-box">
+                    <a href="https://66f434d55f1b88128e8a4b47--dynamic-sorbet-858250.netlify.app/"><h2>PDF Converter</h2></a>
+                    <p>It is a simple but useful website which <span>Merges 2 or more PDFs</span></p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div class="personal-details">
+                <h2><i class="fa-solid fa-person"></i>Raj Sharma</h2>
+                <h2><i class="fa-solid fa-mobile"></i>9975480892</h2>
+                <h2><i class="fa-solid fa-envelope"></i>rjsharma.rs967@gmail.com</h2>
+                <h2><i class="fa-solid fa-location-crosshairs"></i>Mumbai, Maharashtra</h2>
+            </div>
+        </footer>
     </div>
-    <div class="fixed-menu">
-      <a href="/"><li>About</li></a>
-            <a href="/"><li>Skills</li></a>
-            <a href="/"> <li>Projects</li></a>
-            <a href="#"><li>Contact Me</li></a>
-            <a href="https://drive.google.com/file/d/1O10lJJRYwBd7NBnf2YLii4ObsGqImU8E/view?usp=sharing"><li>Resume</li></a>
-            <a href="https://www.linkedin.com/in/raj-sharma9975/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/renchooz"><i class="fa-brands fa-github"></i></a>
+
+    <div class="fixed-menu" id="mobileMenu">
+        <a href="#"><li>About</li></a>
+        <a href="#skills"><li>Skills</li></a>
+        <a href="#projects"><li>Projects</li></a>
+        <a href="#contact"><li>Contact Me</li></a>
+        <a href="https://drive.google.com/file/d/1igQzDkRsIbNf853n4KlJ4I4BagyfYRDD/view?usp=sharing"><li>Resume</li></a>
+        <a href="https://www.linkedin.com/in/raj-sharma9975/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/renchooz"><i class="fa-brands fa-github"></i></a>
     </div>
-   
-  </body>
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script src="script.js"></script>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        // Typed.js Animation
+        var typed = new Typed('#element', {
+            strings: ['Full Stack Developer', 'MERN Stack Developer', 'Frontend Developer', 'Backend Developer'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1000,
+            loop: true
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const currentRight = window.getComputedStyle(menu).right;
+            
+            if (currentRight === '0px') {
+                menu.style.right = '-100%';
+            } else {
+                menu.style.right = '0px';
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuButton = document.querySelector('.menu');
+            
+            if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+                menu.style.right = '-100%';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').style.right = '-100%';
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.9)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all skill boxes and project boxes
+        document.querySelectorAll('.box, .project-box').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(30px)';
+            box.style.transition = 'all 0.6s ease';
+            observer.observe(box);
+        });
+
+        // Add particle effect on mouse move
+        document.addEventListener('mousemove', function(e) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = e.clientX + 'px';
+            particle.style.top = e.clientY + 'px';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(153, 69, 255, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '9999';
+            particle.style.animation = 'particleFade 1s ease-out forwards';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        });
+
+        // Add particle fade animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFade {
+                0% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0) translateY(-50px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
 </html>
