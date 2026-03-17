@@ -553,6 +553,36 @@
         background-clip: text;
       }
 
+      .project-tap {
+        position: absolute;
+        right: 18px;
+        bottom: 16px;
+        z-index: 1;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        display: none;
+        pointer-events: none;
+        backdrop-filter: blur(10px);
+      }
+
+      @media (max-width: 768px) {
+        .project h1 {
+          margin-bottom: 50px;
+        }
+
+        .project-tap {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+
       .project-box {
         background: var(--card-bg);
         backdrop-filter: blur(20px);
@@ -1168,6 +1198,7 @@
                 Secure <span>PDF Learning Platform</span> with watermarking, access tracking, and role-based dashboards. Built with MERN stack, features admin PDF uploads with per-student watermarking, in-browser protected viewer, dark mode UI, and comprehensive access tracking. Fully containerized with Docker and automated CI/CD via GitHub Actions.
               </div>
             </div>
+            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
           </div>
 
           <div class="project-box">
@@ -1184,9 +1215,7 @@
               <div class="project-hover-top">
                 <div class="project-hover-title">Bijli</div>
                 <div class="project-actions">
-                  <a class="btn btn-ghost" href="https://github.com/renchooz" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i> GitHub
-                  </a>
+                 
                   <a class="btn btn-primary" href="https://spiffy-brigadeiros-344677.netlify.app/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
                   </a>
@@ -1196,6 +1225,7 @@
                 Real time chatting <span>website</span> with Socket.IO, built on Node.js and MongoDB for fast, live messaging.
               </div>
             </div>
+            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
           </div>
 
           <div class="project-box">
@@ -1215,9 +1245,7 @@
               <div class="project-hover-top">
                 <div class="project-hover-title">Travleeee</div>
                 <div class="project-actions">
-                  <a class="btn btn-ghost" href="https://github.com/renchooz" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i> GitHub
-                  </a>
+                 
                   <a class="btn btn-primary" href="https://spiffy-daifuku-34a3c8.netlify.app/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
                   </a>
@@ -1227,6 +1255,7 @@
                 Travlee is a full-stack web application designed to streamline <span>car</span> and travel bookings, built with MERN and styled with Tailwind. Container-ready workflow (Docker) for consistent local + deploy environments.
               </div>
             </div>
+            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
           </div>
 
           <div class="project-box">
@@ -1246,9 +1275,7 @@
               <div class="project-hover-top">
                 <div class="project-hover-title">Foodies</div>
                 <div class="project-actions">
-                  <a class="btn btn-ghost" href="https://github.com/renchooz" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i> GitHub
-                  </a>
+                
                   <a class="btn btn-primary" href="https://melodious-marigold-cac143.netlify.app/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
                   </a>
@@ -1258,38 +1285,9 @@
                 Your Ultimate Online Food Destination — <span>Order Anything</span> Anywhere. Built with React on the frontend and a MongoDB + Express backend stack for managing menus, orders, and data.
               </div>
             </div>
+            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
           </div>
 
-          <div class="project-box">
-            <div class="project-content">
-              <h2>Sundown Studio</h2>
-              <p>
-                It's a fully responsive website and it's clone of
-                <span>Sundown Studio</span>
-              </p>
-              <div class="project-tech">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">JavaScript</span>
-              </div>
-            </div>
-            <div class="project-hover">
-              <div class="project-hover-top">
-                <div class="project-hover-title">Sundown Studio</div>
-                <div class="project-actions">
-                  <a class="btn btn-ghost" href="https://github.com/renchooz" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i> GitHub
-                  </a>
-                  <a class="btn btn-primary" href="https://66f2de9edda74e0651011ccd--frabjous-seahorse-0ffa57.netlify.app" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-                  </a>
-                </div>
-              </div>
-              <div class="project-hover-desc">
-                A fully responsive clone of <span>Sundown Studio</span>, built with HTML, CSS and JavaScript with smooth interactions and modern layout techniques.
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
