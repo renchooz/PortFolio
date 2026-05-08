@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -50,7 +50,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(
+        background:
+          radial-gradient(
             circle at 20% 80%,
             rgba(153, 69, 255, 0.1) 0%,
             transparent 50%
@@ -451,26 +452,62 @@
       }
 
       /* Individual skill colors */
-      .html-skill .skill-icon i { color: #e34f26; }
-      .css-skill .skill-icon i { color: #1572b6; }
-      .js-skill .skill-icon i { color: #f7df1e; }
-      .bootstrap-skill .skill-icon i { color: #7952b3; }
-      .ts-skill .skill-icon i { color: #3178c6; }
-      .react-skill .skill-icon i { color: #61dafb; }
-      .node-skill .skill-icon i { color: #339933; }
-      .express-skill .skill-icon i { color: #000000; }
-      .mongodb-skill .skill-icon i { color: #47a248; }
-      .c-skill .skill-icon i { color: #a8b9cc; }
-      .cpp-skill .skill-icon i { color: #00599c; }
-      .sql-skill .skill-icon i { color: #336791; }
-      
+      .html-skill .skill-icon i {
+        color: #e34f26;
+      }
+      .css-skill .skill-icon i {
+        color: #1572b6;
+      }
+      .js-skill .skill-icon i {
+        color: #f7df1e;
+      }
+      .bootstrap-skill .skill-icon i {
+        color: #7952b3;
+      }
+      .ts-skill .skill-icon i {
+        color: #3178c6;
+      }
+      .react-skill .skill-icon i {
+        color: #61dafb;
+      }
+      .node-skill .skill-icon i {
+        color: #339933;
+      }
+      .express-skill .skill-icon i {
+        color: #000000;
+      }
+      .mongodb-skill .skill-icon i {
+        color: #47a248;
+      }
+      .c-skill .skill-icon i {
+        color: #a8b9cc;
+      }
+      .cpp-skill .skill-icon i {
+        color: #00599c;
+      }
+      .sql-skill .skill-icon i {
+        color: #336791;
+      }
+
       /* DevOps skill colors */
-      .linux-skill .skill-icon i { color: #FCC624; }
-      .docker-skill .skill-icon i { color: #2496ED; }
-      .kubernetes-skill .skill-icon i { color: #326CE5; }
-      .aws-skill .skill-icon i { color: #FF9900; }
-      .github-skill .skill-icon i { color: #00ff88; }
-      .shell-skill .skill-icon i { color: #4EAA25; }
+      .linux-skill .skill-icon i {
+        color: #fcc624;
+      }
+      .docker-skill .skill-icon i {
+        color: #2496ed;
+      }
+      .kubernetes-skill .skill-icon i {
+        color: #326ce5;
+      }
+      .aws-skill .skill-icon i {
+        color: #ff9900;
+      }
+      .github-skill .skill-icon i {
+        color: #00ff88;
+      }
+      .shell-skill .skill-icon i {
+        color: #4eaa25;
+      }
 
       .para {
         text-align: center;
@@ -581,6 +618,12 @@
           align-items: center;
           gap: 8px;
         }
+
+        .project-box:hover {
+          transform: none;
+          border-color: rgba(0, 212, 255, 0.2);
+          box-shadow: none;
+        }
       }
 
       .project-box {
@@ -672,7 +715,9 @@
         border: 1px solid rgba(0, 212, 255, 0.25);
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.25s ease, transform 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
         pointer-events: none;
         z-index: 2;
         display: flex;
@@ -681,10 +726,15 @@
       }
 
       .project-box:hover .project-hover,
-      .project-box:focus-within .project-hover {
+      .project-box:focus-within .project-hover,
+      .project-box.open .project-hover {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+      }
+
+      .project-box.open .project-content {
+        opacity: 0;
       }
 
       .project-hover-top {
@@ -719,8 +769,11 @@
         text-decoration: none;
         font-weight: 700;
         font-size: 1rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease,
-          background 0.2s ease, border-color 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
         border: 1px solid rgba(153, 69, 255, 0.35);
         background: rgba(153, 69, 255, 0.12);
         color: var(--white);
@@ -753,13 +806,19 @@
         padding-right: 6px;
       }
 
-      .project-hover-desc::-webkit-scrollbar {
-        width: 8px;
+      .project-hover-desc ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 10px;
       }
 
-      .project-hover-desc::-webkit-scrollbar-thumb {
-        background: rgba(0, 212, 255, 0.25);
-        border-radius: 999px;
+      .project-hover-desc li {
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .project-hover-desc li::marker {
+        color: var(--green);
       }
 
       .project-tech {
@@ -965,18 +1024,42 @@
         animation: skillLoad 0.8s ease-out;
       }
 
-      .box:nth-child(1) .skill-icon { animation-delay: 0.1s; }
-      .box:nth-child(2) .skill-icon { animation-delay: 0.2s; }
-      .box:nth-child(3) .skill-icon { animation-delay: 0.3s; }
-      .box:nth-child(4) .skill-icon { animation-delay: 0.4s; }
-      .box:nth-child(5) .skill-icon { animation-delay: 0.5s; }
-      .box:nth-child(6) .skill-icon { animation-delay: 0.6s; }
-      .box:nth-child(7) .skill-icon { animation-delay: 0.7s; }
-      .box:nth-child(8) .skill-icon { animation-delay: 0.8s; }
-      .box:nth-child(9) .skill-icon { animation-delay: 0.9s; }
-      .box:nth-child(10) .skill-icon { animation-delay: 1s; }
-      .box:nth-child(11) .skill-icon { animation-delay: 1.1s; }
-      .box:nth-child(12) .skill-icon { animation-delay: 1.2s; }
+      .box:nth-child(1) .skill-icon {
+        animation-delay: 0.1s;
+      }
+      .box:nth-child(2) .skill-icon {
+        animation-delay: 0.2s;
+      }
+      .box:nth-child(3) .skill-icon {
+        animation-delay: 0.3s;
+      }
+      .box:nth-child(4) .skill-icon {
+        animation-delay: 0.4s;
+      }
+      .box:nth-child(5) .skill-icon {
+        animation-delay: 0.5s;
+      }
+      .box:nth-child(6) .skill-icon {
+        animation-delay: 0.6s;
+      }
+      .box:nth-child(7) .skill-icon {
+        animation-delay: 0.7s;
+      }
+      .box:nth-child(8) .skill-icon {
+        animation-delay: 0.8s;
+      }
+      .box:nth-child(9) .skill-icon {
+        animation-delay: 0.9s;
+      }
+      .box:nth-child(10) .skill-icon {
+        animation-delay: 1s;
+      }
+      .box:nth-child(11) .skill-icon {
+        animation-delay: 1.1s;
+      }
+      .box:nth-child(12) .skill-icon {
+        animation-delay: 1.2s;
+      }
 
       @keyframes iconFloat {
         0%,
@@ -996,7 +1079,7 @@
         <div class="nav-right">
           <ul>
             <a
-              href="https://drive.google.com/file/d/1j9NQFsj8kB_AspRB4A-sRyb1oIp-ubQc/view?usp=sharing"
+              href="https://drive.google.com/file/d/1gY3rwytf5JoAMd7BWBuRV0xXe_50h6Rf/view?usp=drive_link"
               ><li>Resume</li></a
             >
             <a href="#skills"><li>Skills</li></a>
@@ -1071,19 +1154,19 @@
               </div>
               <div class="box react-skill">
                 <div class="skill-icon">
-                  <img src="icons8-tailwind-css-48.png" alt="tailwind">
+                  <img src="icons8-tailwind-css-48.png" alt="tailwind" />
                 </div>
                 <div class="skill-name">Tailwind</div>
               </div>
               <div class="box react-skill">
                 <div class="skill-icon">
-                  <img src="icons8-typescript-50.png" alt="Typescript">
+                  <img src="icons8-typescript-50.png" alt="Typescript" />
                 </div>
                 <div class="skill-name">TypeScript</div>
               </div>
               <div class="box node-skill">
                 <div class="skill-icon">
-                  <img src="icons8-nodejs-48.png" alt="node js">
+                  <img src="icons8-nodejs-48.png" alt="node js" />
                 </div>
                 <div class="skill-name">Node.js</div>
               </div>
@@ -1170,35 +1253,56 @@
       <section class="section-3" id="projects">
         <div class="project">
           <h1>Projects</h1>
-          
+
           <div class="project-box">
             <div class="project-content">
               <h2>PDF Hub</h2>
-              <p>Secure <span>PDF Learning Platform</span> with watermarking, access tracking, and role-based dashboards</p>
+              <p>
+                Secure <span>PDF Learning Platform</span> with watermarking,
+                access tracking, and role-based dashboards
+              </p>
               <div class="project-tech">
                 <span class="tech-badge">Docker</span>
                 <span class="tech-badge">GitHub Actions</span>
                 <span class="tech-badge">MERN</span>
                 <span class="tech-badge">Cloudinary</span>
+                <span class="tech-badge">JWT Auth</span>
               </div>
             </div>
             <div class="project-hover">
               <div class="project-hover-top">
                 <div class="project-hover-title">PDF Hub</div>
                 <div class="project-actions">
-                  <a class="btn btn-ghost" href="https://github.com/renchooz/Pdf_Hub" target="_blank" rel="noopener noreferrer">
+                  <a
+                    class="btn btn-ghost"
+                    href="https://github.com/renchooz/Pdf_Hub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i class="fa-brands fa-github"></i> GitHub
                   </a>
-                  <a class="btn btn-primary" href="https://github.com/renchooz/Pdf_Hub" target="_blank" rel="noopener noreferrer">
+                  <a
+                    class="btn btn-primary"
+                    href="https://github.com/renchooz/Pdf_Hub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
                   </a>
                 </div>
               </div>
               <div class="project-hover-desc">
-                Secure <span>PDF Learning Platform</span> with watermarking, access tracking, and role-based dashboards. Built with MERN stack, features admin PDF uploads with per-student watermarking, in-browser protected viewer, dark mode UI, and comprehensive access tracking. Fully containerized with Docker and automated CI/CD via GitHub Actions.
+                <ul>
+                  <li>Secure MERN platform for managed PDF learning delivery.</li>
+                  <li>Per-student watermarking and protected in-browser viewer.</li>
+                  <li>JWT role-based auth for admin and student access control.</li>
+                  <li>Access logs and usage analytics for tracking engagement.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
+            <div class="project-tap">
+              <i class="fa-solid fa-hand-pointer"></i> Tap to view more
+            </div>
           </div>
 
           <div class="project-box">
@@ -1209,58 +1313,44 @@
                 <span class="tech-badge">Node.js</span>
                 <span class="tech-badge">Socket.io</span>
                 <span class="tech-badge">MongoDB</span>
+                <span class="tech-badge">JWT</span>
+                <span class="tech-badge">React</span>
               </div>
             </div>
             <div class="project-hover">
               <div class="project-hover-top">
                 <div class="project-hover-title">Bijli</div>
                 <div class="project-actions">
-                 
-                  <a class="btn btn-primary" href="https://spiffy-brigadeiros-344677.netlify.app/" target="_blank" rel="noopener noreferrer">
+                  <a
+                    class="btn btn-primary"
+                    href="https://spiffy-brigadeiros-344677.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
                   </a>
                 </div>
               </div>
               <div class="project-hover-desc">
-                Real time chatting <span>website</span> with Socket.IO, built on Node.js and MongoDB for fast, live messaging.
+                <ul>
+                  <li>Realtime chat experience powered by Socket.IO events.</li>
+                  <li>JWT-based login, registration, and protected user sessions.</li>
+                  <li>Live online/offline status and instant message sync.</li>
+                  <li>Responsive React UI with Node + MongoDB backend APIs.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
+            <div class="project-tap">
+              <i class="fa-solid fa-hand-pointer"></i> Tap to view more
+            </div>
           </div>
 
           <div class="project-box">
             <div class="project-content">
-              <h2>Travleeee</h2>
-              <p>
-                Travlee is a full-stack web application designed to streamline
-                <span>car</span> and travel bookings
-              </p>
-              <div class="project-tech">
-                <span class="tech-badge">MERN</span>
-                <span class="tech-badge">Docker</span>
-                <span class="tech-badge">Tailwind</span>
-              </div>
-            </div>
-            <div class="project-hover">
-              <div class="project-hover-top">
-                <div class="project-hover-title">Travleeee</div>
-                <div class="project-actions">
-                 
-                  <a class="btn btn-primary" href="https://spiffy-daifuku-34a3c8.netlify.app/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-                  </a>
-                </div>
-              </div>
-              <div class="project-hover-desc">
-                Travlee is a full-stack web application designed to streamline <span>car</span> and travel bookings, built with MERN and styled with Tailwind. Container-ready workflow (Docker) for consistent local + deploy environments.
-              </div>
-            </div>
-            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
-          </div>
-
-          <div class="project-box">
-            <div class="project-content">
-              <h2>Foodies</h2>
+              <h2>
+                Foodies – Full Stack MERN Application with CI/CD & DevOps
+                Integration 🚀
+              </h2>
               <p>
                 Your Ultimate Online Food Destination
                 <span>Order Anything</span> Anywhere
@@ -1269,25 +1359,38 @@
                 <span class="tech-badge">React</span>
                 <span class="tech-badge">MongoDB</span>
                 <span class="tech-badge">Express</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">CI/CD</span>
               </div>
             </div>
             <div class="project-hover">
               <div class="project-hover-top">
                 <div class="project-hover-title">Foodies</div>
                 <div class="project-actions">
-                
-                  <a class="btn btn-primary" href="https://melodious-marigold-cac143.netlify.app/" target="_blank" rel="noopener noreferrer">
+                  <a
+                    class="btn btn-primary"
+                    href="https://melodious-marigold-cac143.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
                   </a>
                 </div>
               </div>
               <div class="project-hover-desc">
-                Your Ultimate Online Food Destination — <span>Order Anything</span> Anywhere. Built with React on the frontend and a MongoDB + Express backend stack for managing menus, orders, and data.
+                <ul>
+                  <li>Full-stack MERN food ordering workflow from UI to APIs.</li>
+                  <li>Dockerized frontend and backend for consistent deployments.</li>
+                  <li>GitHub Actions CI/CD pipelines for build and release automation.</li>
+                  <li>Production-style setup with cloud deploy and reverse proxy flow.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-tap"><i class="fa-solid fa-hand-pointer"></i> Tap to view more</div>
+            <div class="project-tap">
+              <i class="fa-solid fa-hand-pointer"></i> Tap to view more
+            </div>
           </div>
-
         </div>
       </section>
 
@@ -1309,7 +1412,7 @@
       <a href="#projects"><li>Projects</li></a>
       <a href="#contact"><li>Contact Me</li></a>
       <a
-        href="https://drive.google.com/file/d/1j9NQFsj8kB_AspRB4A-sRyb1oIp-ubQc/view?usp=sharing"
+        href="https://drive.google.com/file/d/1gY3rwytf5JoAMd7BWBuRV0xXe_50h6Rf/view?usp=drive_link"
         ><li>Resume</li></a
       >
       <a href="https://www.linkedin.com/in/raj-sharma9975/"
@@ -1401,6 +1504,36 @@
         box.style.transform = "translateY(30px)";
         box.style.transition = "all 0.6s ease";
         observer.observe(box);
+      });
+
+      // Mobile tap-to-toggle project details
+      const projectBoxes = document.querySelectorAll(".project-box");
+      const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+      function closeAllProjectPanels() {
+        projectBoxes.forEach((card) => card.classList.remove("open"));
+      }
+
+      projectBoxes.forEach((card) => {
+        card.addEventListener("click", (event) => {
+          if (!mobileQuery.matches) return;
+
+          const isActionButton = event.target.closest(".project-actions a");
+          if (isActionButton) return;
+
+          const isOpen = card.classList.contains("open");
+          closeAllProjectPanels();
+          if (!isOpen) card.classList.add("open");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!mobileQuery.matches) return;
+        if (!event.target.closest(".project-box")) closeAllProjectPanels();
+      });
+
+      mobileQuery.addEventListener("change", () => {
+        if (!mobileQuery.matches) closeAllProjectPanels();
       });
 
       document.addEventListener("mousemove", function (e) {
